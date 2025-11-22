@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 data = np.genfromtxt("sample_dataset.csv", delimiter=",", skip_header=1)
 

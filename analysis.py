@@ -3,6 +3,12 @@ import matplotlib.pyplot as plt
 
 data = np.genfromtxt("sample_dataset.csv", delimiter=",", skip_header=1)
 
+# 1. INITIALIZATION
+
+age = data[:, 0]       
+height = data[:, 1]    
+weight = data[:, 2]  
+
 # 2. BASIC STATISTICS
 
 mean = np.mean(data, axis=0)
@@ -18,5 +24,21 @@ print(f"Std:    {std}")
 print(f"Min:    {_min}")
 print(f"Max:    {_max}")
 
-print("\n=== UNIQUE AGE VALUES ===")
-print(np.unique(age))
+# 3. Percentile
+
+print("\n=== AGE Percentiles ===")
+print("25th:", np.percentile(age, 25))
+print("50th:", np.percentile(age, 50))
+print("75th:", np.percentile(age, 75))
+
+# 4. Broadcasting
+
+print("\n=== BROADCASTING OPERATIONS ===")
+height_m = height / 100
+print("Height in meters (first 7):", height_m[:7])
+
+# 5. Correlation
+
+corr = np.corrcoef(data.T)
+print("\n=== CORRELATION MATRIX ===")
+print(corr)
